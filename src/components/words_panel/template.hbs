@@ -16,9 +16,11 @@
         Word has already been used
       {{/if}}
     </section>
-    <section class='word-input-points'>
-      {{currentPoints}} pts
-    </section>
+    {{#if currentPoints}}
+      <section class='word-input-points'>
+        {{currentPoints}} pts
+      </section>
+    {{/if}}
   </section>
   <section class='word-list'>
     {{#each words}}

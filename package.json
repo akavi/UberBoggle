@@ -1,6 +1,12 @@
 {
   "dependencies": {
     "jquery": "^2.1.4"
+    "express": "^4.13.3",
+    "gulp-jasmine": "^2.1.0",
+    "jquery": "^2.1.4",
+    "jsdom": "^6.5.1",
+    "lodash": "^3.10.1",
+    "request": "^2.65.0"
   },
   "devDependencies": {
     "gulp": "^3.9.0",

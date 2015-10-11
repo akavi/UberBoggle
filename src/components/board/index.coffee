@@ -1,22 +1,32 @@
 $ = require('jquery')
 template = require('./template')
 
-class Board
-  constructor: ->
-    @el = $('<div>')
-    @el.html template(@data())
+Component = require('../component')
+
+class Board extends Component
+  template: template
+
+  constructor: (opts = {})->
+    super
+    @state = opts.state
+
+    @state.on 'all', @render
+    @render()
 
   data: ->
-    isPreGame: false
-    isInGame: false
-    isPostGame: true
-    board: [
-      ['A1', 'A2', 'A3', 'A4']
-      ['B1', 'B2', 'B3', 'B4']
-      ['C1', 'C2', 'C3', 'C4']
-      ['D1', 'D2', 'D3', 'D4']
-    ]
+    time = new Date()
+    game = @state.get('game')
+    activeWord = @state.get('activeWord')
 
-    paths: []
+    board = game?.get('board')
+    board ?= for i in Array(4)
+      for i in Array(4)
+        undefined
+
+    isPreGame: !game?
+    isInGame: game?.isInGame(time)
+    isPostGame: game and !game?.isInGame(time)
+    board: board
+    path: game?.wordPath(activeWord) if activeWord
 
 module.exports = Board

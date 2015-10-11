@@ -1,22 +1,40 @@
 $ = require('jquery')
+
 template = require('./template')
 
-Board = require('../board')
-ControlPanel = require('../control_panel')
-WordsPanel = require('../words_panel')
+Component = require('../component')
+BoardComponent = require('../board')
+ControlPanelComponent = require('../control_panel')
+WordsPanelComponent = require('../words_panel')
 
-class BoggleApp
+Model = require('../../models/model')
+Game = require('../../models/game')
+Word = require('../../models/word')
+Board = require('../../models/word')
+
+class BoggleApp extends Component
+  template: template
+
   constructor: ->
-    @el = $('<div>')
-    @el.html template()
+    super
 
-    board = new Board()
-    @el.find('.h-board').html board.el
+    @state = new Model()
+    @state.set('game', undefined)
+    @state.set('currentWord', new Word(literal: ''))
+    @state.set('activeWord', undefined)
 
-    controlPanel = new ControlPanel()
-    @el.find('.h-control-panel').html controlPanel.el
+    @render()
 
-    wordsPanel = new WordsPanel()
-    @el.find('.h-words-panel').html wordsPanel.el
+  render: =>
+    super
+
+    @board ?= new BoardComponent(state: @state)
+    @$('.h-board').html @board.el
+
+    @controlPanel ?= new ControlPanelComponent(state: @state)
+    @$('.h-control-panel').html @controlPanel.el
+
+    @wordsPanel ?= new WordsPanelComponent(state: @state)
+    @$('.h-words-panel').html @wordsPanel.el
 
 module.exports = BoggleApp

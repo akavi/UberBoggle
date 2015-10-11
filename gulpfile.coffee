@@ -8,6 +8,7 @@ changeExtension = require('gulp-ext-replace')
 coffee = require('gulp-coffee')
 handlebars = require('hbsfy')
 browserify = require('browserify')
+jasmine = require('gulp-jasmine')
 
 gulp.task 'coffeescript', ->
   gulp.src('./src/**/*.coffee')
@@ -28,6 +29,11 @@ gulp.task 'browserify', ['coffeescript', 'handlebars'], ->
     .bundle()
     .pipe(source('./index.js'))
     .pipe(gulp.dest('./public/'))
+
+gulp.task 'specs', ->
+  gulp.src('specs/**/*_spec.coffee')
+    .pipe(jasmine(includeStackTrace: true))
+
 
 gulp.task 'watch', ->
   gulp.watch('./src/**/*.coffee', ['coffeescript', 'browserify'])
