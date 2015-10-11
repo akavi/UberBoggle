@@ -1,0 +1,150 @@
+body{
+  background: #FFFBF3;
+  font-family: 'Roboto Slab';
+  font-weight: 300;
+  color: #724;
+}
+
+.title{
+  font-size: 56pt;
+  text-align: center;
+}
+
+.title-text {
+  margin-top: 16px;
+  font-weight: 300;
+  margin-bottom: 32px;
+}
+
+.content{
+  text-align: center;
+}
+
+.board-section{
+  display: inline-block;
+  vertical-align: top;
+}
+
+.board{
+  box-shadow: 0px 0px 15px #ABC;
+}
+
+.board-row{
+  font-size: 0pt;
+}
+.board-item{
+  background: #FFFEFD;
+  display: inline-block;
+  height: 92px;
+  width: 104px;
+  border: 3px solid #123;
+  font-size: 48pt;
+  vertical-align: middle;
+  text-align: center;
+  padding-top: 14px;
+  margin-right: -2px;
+  margin-bottom: -2px;
+  box-shadow: inset 0px 0px 5px #ABC;
+}
+ 
+.word-section{
+  display: inline-block;
+  vertical-align: top;
+  text-align: left;
+  margin-left: 64px;
+  width: 240px;
+}
+
+.control-panel{
+  background: #FFFEFD;
+  margin-bottom: 36px;
+  border: 3px solid black;
+  border-radius: 3px;
+  box-shadow: 0px 0px 15px #ABC;
+}
+
+.start-button {
+  float: right;
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+  background: #123;
+  padding-top: 24px;
+  height: 56px;
+  width: 80px;
+  color: #FFFEFD;
+  font-size: 12pt;
+}
+
+.time-left{
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
+.time-left-count{
+  font-size: 32pt;
+}
+
+.time-left-label{
+  font-size: 8pt;
+  margin-bottom: 8px;
+}
+
+.word-panel{
+  background: #FFFEFD;
+  border: 3px solid #123;
+  box-shadow: 0px 0px 15px #ABC;
+  padding-top: 12px;
+  padding-left: 12px;
+  padding-right: 12px;
+  clear: both;
+}
+
+.word-input{
+  margin-bottom: 44px;
+}
+
+.word-input-input{
+  display: inline-block;
+  width: 98%;
+  height: 24px;
+}
+
+.word-input-points{
+  display: inline-block;
+  float: right;
+  font-size: 8pt;
+}
+
+.word-validity{
+  font-size: 8pt;
+  float: left;
+}
+
+.word-item{
+  width: 100%;
+  padding-bottom: 10px;
+}
+
+.word-item:after{
+  content: ' ';
+  visibility: hidden;
+  display: block;
+  clear: both;
+  font-size: 0;
+}
+
+.word-literal{
+  display: inline-block;
+  vertical-align: top;
+  float: left;
+}
+
+.word-points{
+  display: inline-block;
+  vertical-align: top;
+  float: right;
+}
