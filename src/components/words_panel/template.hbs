@@ -3,28 +3,33 @@
     <input class='word-input-input' type='text'>
     </input>
     <section class='word-validity'>
-      Word has already been used
+      {{#if isChecking}}
+        ...checking...
+      {{/if}}
+      {{#if isntReal}}
+        Not a word
+      {{/if}}
+      {{#if isntOnBoard}}
+        Not on board
+      {{/if}}
+      {{#if isntUnique}}
+        Word has already been used
+      {{/if}}
     </section>
     <section class='word-input-points'>
-      5 pts
+      {{currentPoints}} pts
     </section>
   </section>
   <section class='word-list'>
-    <section class='word-item'>
-      <section class='word-literal'>
-        Foo
+    {{#each words}}
+      <section class='word-item'>
+        <section class='word-literal'>
+          {{this.literal}}
+        </section>
+        <section class='word-points'>
+          {{this.value}} pts
+        </section>
       </section>
-      <section class='word-points'>
-        3 pts
-      </section>
-    </section>
-    <section class='word-item'>
-      <section class='word-literal'>
-        Bacon
-      </section>
-      <section class='word-points'>
-        5 pts
-      </section>
-    </section>
+    {{/each}}
   </section>
 </section>
