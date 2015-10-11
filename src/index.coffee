@@ -1,7 +1,7 @@
 $ = require('jquery')
-hbs = require('./template')
+BoggleApp = require('./components/boggle_app')
 
 $ ->
-  console.log hbs()
-  console.log("ASDF")
-  # no-op
+  app = new BoggleApp()
+  console.log app.el
+  $('.h-main').html app.el
