@@ -32,7 +32,8 @@ body{
 .board-row{
   font-size: 0pt;
 }
-.board-item{
+
+.board-tile{
   background: #FFFEFD;
   display: inline-block;
   height: 92px;
@@ -45,6 +46,21 @@ body{
   margin-right: -2px;
   margin-bottom: -2px;
   box-shadow: inset 0px 0px 5px #ABC;
+}
+
+.inactive-board-tile{
+  background: #807F7E;
+  display: inline-block;
+  height: 92px;
+  width: 104px;
+  border: 3px solid #123;
+  font-size: 48pt;
+  vertical-align: middle;
+  text-align: center;
+  padding-top: 14px;
+  margin-right: -2px;
+  margin-bottom: -2px;
+  box-shadow: inset 0px 0px 5px #403F3F;
 }
  
 .word-section{
