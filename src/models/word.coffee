@@ -8,9 +8,10 @@ class Word extends Model
     literal = @get('literal')
 
     onSuccess = (json)=>
-      @set('isReal', true)
+      console.log "YAY", json
+      @set('isReal', json.isReal)
 
-    setTimeout onSuccess, 1000
+    $.get "/words/#{literal}", {}, onSuccess
   
   value: ->
     @get('literal').length
