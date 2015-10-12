@@ -6,7 +6,8 @@
   <section class='word-input'>
     <form class='word-input-form'>
       {{#if canEnterWords}}
-        <input class='word-input-input' type='text' value={{currentWord}}> </input>
+        <input class='word-input-input' type='text' placeholder='Enter words' value={{currentWord}} > 
+        </input>
       {{else}}
         <input class='word-input-input' type='text' disabled> </input>
       {{/if}}
@@ -36,7 +37,7 @@
           {{this.literal}}
         </div>
         <div class='word-points'>
-          {{this.value}} pts
+          {{this.points}} pts
         </div>
       </li>
     {{/each}}

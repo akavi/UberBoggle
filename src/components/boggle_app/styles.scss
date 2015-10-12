@@ -1,0 +1,44 @@
+@import '../shared';
+
+body{
+  background: $background_color;
+  font-family: 'Roboto Slab';
+  font-weight: 300;
+  color: $text_color;
+}
+
+.title-text {
+  margin-top: 16px;
+  margin-bottom: 32px;
+  text-align: center;
+  font-size: 56pt;
+  font-weight: 300;
+}
+@media (max-width: 768px) {
+  .title-text{
+    margin-top: 2vw;
+    margin-bottom: 4vw;
+    font-size: 14vw;
+  }
+}
+
+.content{
+  text-align: center;
+}
+
+.board-section{
+  display: inline-block;
+  vertical-align: top;
+}
+
+.word-section{
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 64px;
+}
+@media (max-width: 768px) {
+  .word-section{
+    margin: 6vw auto 0vw;
+  }
+}
+

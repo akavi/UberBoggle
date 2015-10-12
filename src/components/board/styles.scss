@@ -1,0 +1,51 @@
+@import '../shared';
+
+.board{
+  box-shadow: 0px 0px 15px $light_border_color;
+}
+
+.board-row{
+  font-size: 0pt;
+}
+
+@mixin board-tile-base{
+  display: inline-block;
+  height: 88px;
+  width: 104px;
+  border: 3px solid $border_color;
+  font-size: 48pt;
+  text-align: center;
+  vertical-align: center;
+  padding-top: 16px;
+  margin-right: -2px;
+  margin-bottom: -2px;
+  box-shadow: inset 0px 0px 5px $light_border_color;
+}
+
+@mixin mobile-board-tile-base{
+  height: 9vw;
+  width: 13vw;
+  padding-top: 4vw;
+  font-size: 6vw;
+}
+
+.board-tile{
+  @include board-tile-base;
+  background: $foreground_color;
+}
+@media (max-width: 768px) {
+  .board-tile{
+    @include mobile-board-tile-base;
+  }
+}
+
+.inactive-board-tile{
+  @include board-tile-base;
+  background: $inactive_color;
+}
+
+@media (max-width: 768px) {
+  .inactive-board-tile{
+    @include mobile-board-tile-base;
+  }
+}

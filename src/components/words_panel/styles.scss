@@ -1,0 +1,99 @@
+@import '../shared';
+
+@mixin word-panel-base{
+  padding: 18px;
+  border: 3px solid $border_color;
+  border-radius: 3px;
+  box-shadow: 0px 0px 15px $light_border_color;
+}
+
+@mixin mobile-word-panel-base{
+  padding: 3vw;
+}
+
+.word-panel{
+  @include word-panel-base;
+  background: $foreground_color;
+}
+@media (max-width: 768px) {
+  .word-panel{
+    @include mobile-word-panel-base;
+  }
+}
+
+.inactive-word-panel{
+  @include word-panel-base;
+  background: $inactive_color;
+}
+@media (max-width: 768px) {
+  .inactive-word-panel{
+    @include mobile-word-panel-base;
+  }
+}
+
+.word-input{
+  margin-bottom: 4px;
+}
+@media (max-width: 768px) {
+  .word-input{
+    margin-bottom: 1vw;
+  }
+}
+.word-input-input{
+  display: inline-block;
+  height: 40px;
+  width: 170px;
+  margin: 4px 0px 2px;
+  padding: 0px 12px;
+  border: 1px #DBDAD8 solid;
+  font-size: 12pt;
+
+  &:disabled{
+    background: #DBDAD8;
+  }
+}
+@media (max-width: 768px) {
+  .word-input-input{
+    height: 15vw;
+    width: 60vw;
+    font-size: 4vw;
+  }
+}
+
+.word-input-points{
+  margin-left: 2px;
+  font-size: 8pt;
+  float: right;
+}
+
+.word-item{
+  width: 100%;
+  padding-bottom: 18px;
+
+  &:first-child{
+    padding-top: 24px;
+  }
+  &:last-child{
+    padding-bottom: 0px;
+  }
+}
+
+.word-item:after{
+  content: ' ';
+  visibility: hidden;
+  display: block;
+  clear: both;
+  font-size: 0;
+}
+
+.word-literal{
+  display: inline-block;
+  vertical-align: top;
+  float: left;
+}
+
+.word-points{
+  display: inline-block;
+  vertical-align: top;
+  float: right;
+}
