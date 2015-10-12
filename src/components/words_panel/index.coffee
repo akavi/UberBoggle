@@ -29,7 +29,7 @@ class WordsPanel extends Component
 
     canEnterWords  = game?.isInGame(time)
     checkable = currentWord?.get('literal').length > 0
-    currentPoints = currentWord?.value()
+    currentPoints = currentWord?.points()
     isChecking = !currentWord?.get('isReal')?
     isReal = currentWord?.get('isReal') is true
     isUnique = game?.isWordUnique(currentWord)
@@ -37,7 +37,7 @@ class WordsPanel extends Component
 
     canEnterWords: canEnterWords
     words: words.map (w)->
-      {literal: w.get('literal'), value: w.value()}
+      {literal: w.get('literal'), points: w.points()}
     currentWord: currentWord.get('literal')
     currentPoints:
       checkable && isReal && isUnique && isOnBoard && currentPoints

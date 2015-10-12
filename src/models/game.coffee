@@ -49,7 +49,7 @@ class Game extends Model
   points: ->
     _.reduce(
       @get('words')
-      (sum, w)-> sum + w.value()
+      (sum, w)-> sum + w.points()
       0
     )
 

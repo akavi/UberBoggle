@@ -12,7 +12,7 @@ class Word extends Model
 
     $.get "/words/#{literal}", {}, onSuccess
   
-  value: ->
+  points: ->
     @get('literal').length
 
 module.exports = Word
