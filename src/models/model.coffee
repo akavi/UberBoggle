@@ -10,9 +10,9 @@ class Model
   set: (key, value)->
     @attributes[key] = value
     if value instanceof Model
-      value.on 'all', (args)=>
-        @trigger("change:#{key}", args.slice(1)...)
+      value.on 'all', (args...)=>
         subevent = args[0]
+        console.log "GON TRIGGER", "change:#{key}:#{subevent}"
         @trigger("change:#{key}:#{subevent}", args.slice(1)...)
 
     @trigger("change:#{key}")

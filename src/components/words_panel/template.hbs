@@ -1,8 +1,17 @@
-<section class='word-panel'>
+{{#if canEnterWords}}
+  <section class='word-panel'>
+{{else}}
+  <section class='inactive-word-panel'>
+{{/if}}
   <section class='word-input'>
-    <input class='word-input-input' type='text'>
-    </input>
-    <section class='word-validity'>
+    <form class='word-input-form'>
+      {{#if canEnterWords}}
+        <input class='word-input-input' type='text' value={{currentWord}}> </input>
+      {{else}}
+        <input class='word-input-input' type='text' disabled> </input>
+      {{/if}}
+    </form>
+    <section class='word-input-points'>
       {{#if isChecking}}
         ...checking...
       {{/if}}
@@ -15,12 +24,10 @@
       {{#if isntUnique}}
         Word has already been used
       {{/if}}
-    </section>
-    {{#if currentPoints}}
-      <section class='word-input-points'>
+      {{#if currentPoints}}
         {{currentPoints}} pts
-      </section>
-    {{/if}}
+      {{/if}}
+    </section>
   </section>
   <section class='word-list'>
     {{#each words}}

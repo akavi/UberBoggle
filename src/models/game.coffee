@@ -9,7 +9,7 @@ class Game extends Model
 
     @set('start', new Date())
     @initBoard()
-    @initWordList()
+    @initWords()
     @initTicker()
 
   destroy: ->
@@ -22,15 +22,17 @@ class Game extends Model
 
     @set('board', board)
 
-  initWordList: ->
-    @set('wordList', [])
+  initWords: ->
+    @set('words', [])
 
   initTicker: =>
     times = 0
     tickerFunc = =>
       if !@isInGame(new Date())
+        @trigger('end')
         clearInterval @ticker
-      @trigger('tick')
+      else
+        @trigger('tick')
 
     @ticker = setInterval tickerFunc, 300
   
@@ -41,8 +43,11 @@ class Game extends Model
     (@get('start') - time) + @duration
   
   points: ->
-    points = _.reduce @get('words'), (sum, w)-> sum + w.value()
-    points or 0
+    _.reduce(
+      @get('words')
+      (sum, w)-> sum + w.value()
+      0
+    )
 
   wordPath: (word)->
     literal = word.get('literal')
