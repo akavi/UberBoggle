@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "jquery": "^2.1.4"
+    "jquery": "^2.1.4",
     "express": "^4.13.3",
     "gulp-jasmine": "^2.1.0",
     "jquery": "^2.1.4",

@@ -1,27 +1,27 @@
 <section class='board'>
-  <section class='board-tiles'>
+  <table class='board-tiles'>
     {{#each board}}
-      <section class='board-row'>
+      <tr class='board-row'>
         {{#each this}}
           {{#if ../../isPreGame}}
-            <section class='inactive-board-tile'>
+            <td class='inactive-board-tile'>
               &middot;
-            </section>
+            </td>
           {{/if}}
           {{#if ../../isInGame}}
-            <section class='board-tile'>
+            <td class='board-tile'>
               {{this}}
-            </section>
+            </td>
           {{/if}}
           {{#if ../../isPostGame}}
-            <section class='inactive-board-tile'>
+            <td class='inactive-board-tile'>
               {{this}}
-            </section>
+            </td>
           {{/if}}
         {{/each}}
-      </section>
+      </tr>
     {{/each}}
-  </section>
+  </table>
   <section class='board-paths'>
     {{#if path}}
     {{/if}}

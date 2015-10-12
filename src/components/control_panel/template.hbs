@@ -1,39 +1,39 @@
 <section class='control-panel'>
   {{#if isPreGame}}
-    <section class='start-button'>
+    <a class='start-button' href='#'>
       Start
-    </section>
+    </a>
   {{else}}
     {{#if isInGame}}
       <section class='time-left'>
-        <section class='time-left-count'>
+        <div class='time-left-count'>
           {{timeLeft}}
-        </section>
-        <section class='time-left-label'>
+        </div>
+        <div class='time-left-label'>
           seconds
-        </section>
+        </div>
       </section>
     {{/if}}
     {{#if isPostGame}}
       <section class='times-up-label'>Score:</section>
     {{/if}}
     <section class='points-display'>
-      <section class='points-display-count'>
+      <div class='points-display-count'>
         {{points}}
-      </section>
-      <section class='points-display-label'>
+      </div>
+      <div class='points-display-label'>
         points
-      </section>
+      </div>
     </section>
     {{#if isInGame}}
-      <section class='quit-button'>
+      <a class='quit-button' href='#'>
         Quit
-      </section>
+      </a>
     {{/if}}
     {{#if isPostGame}}
-      <section class='replay-button'>
+      <a class='replay-button' href='#'>
         Play Again
-      </section>
+      </a>
     {{/if}}
   {{/if}}
 </section>

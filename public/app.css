@@ -136,13 +136,34 @@ body{
   font-size: 16pt;
 }
 
+.points-display{
+  display: inline-block;
+  text-align: center;
+  vertical-align: top;
+  padding-left: 4px;
+  padding-right: 4px;
+  height: 56px;
+  width: 68px;
+}
+
+.points-display-count{
+  font-size: 32pt;
+}
+
+.points-display-label{
+  font-size: 8pt;
+  margin-bottom: 8px;
+}
+
 .quit-button {
   display: inline-block;
   text-align: center;
   background: #123;
-  padding-top: 24px;
-  height: 56px;
-  width: 82px;
+  padding-top: 16px;
+  padding-left: 4px;
+  padding-right: 4px;
+  height: 64px;
+  width: 74px;
   color: #FFFEFD;
   font-size: 12pt;
 }

@@ -29,16 +29,16 @@
       {{/if}}
     </section>
   </section>
-  <section class='word-list'>
+  <ul class='word-list'>
     {{#each words}}
-      <section class='word-item'>
-        <section class='word-literal'>
+      <li class='word-item'>
+        <div class='word-literal'>
           {{this.literal}}
-        </section>
-        <section class='word-points'>
+        </div>
+        <div class='word-points'>
           {{this.value}} pts
-        </section>
-      </section>
+        </div>
+      </li>
     {{/each}}
-  </section>
+  </ul>
 </section>
