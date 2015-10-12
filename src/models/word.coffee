@@ -8,7 +8,6 @@ class Word extends Model
     literal = @get('literal')
 
     onSuccess = (json)=>
-      console.log "YAY", json
       @set('isReal', json.isReal)
 
     $.get "/words/#{literal}", {}, onSuccess

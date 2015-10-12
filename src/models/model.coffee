@@ -1,7 +1,5 @@
 _ = require('lodash')
 
-window._ = _
-
 class Model
   constructor: (attrs = {})->
     @attributes = attrs
@@ -12,7 +10,6 @@ class Model
     if value instanceof Model
       value.on 'all', (args...)=>
         subevent = args[0]
-        console.log "GON TRIGGER", "change:#{key}:#{subevent}"
         @trigger("change:#{key}:#{subevent}", args.slice(1)...)
 
     @trigger("change:#{key}")
@@ -32,5 +29,4 @@ class Model
     @listeners[event] ||= []
     @listeners[event].push callback
 
-window.Model = Model
 module.exports = Model

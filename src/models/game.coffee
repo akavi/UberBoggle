@@ -1,3 +1,4 @@
+_ = require 'lodash'
 Model = require './model'
 
 class Game extends Model
@@ -64,7 +65,6 @@ class Game extends Model
 
   _randomLetter: ->
     possibles = 'abcdefghijklmnopqrstuvwxyz'
-    console.log JSON.stringify possibles
     idx = Math.floor(Math.random() * possibles.length)
     possibles[idx]
 
@@ -99,5 +99,4 @@ class Game extends Model
     if !visited[i]?[j] and board[i]?[j] is firstChar
       @_pathFrom(word, board, [i,j], visited)
 
-window.Game = Game
 module.exports = Game
