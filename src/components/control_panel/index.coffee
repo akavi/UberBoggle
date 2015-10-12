@@ -1,38 +1,50 @@
 $ = require('jquery')
 template = require('./template')
 
-class ControlPanel
-  constructor: (opts)->
-    @el = $('<div>')
-    @state = opts.state
-    
-    @state.on 'all', @render
-    @el.on 'click', '.start-button', @startGame
-    @render()
+Component = require('../component')
+Game = require('../../models/game')
+Word = require('../../models/word')
 
-  render: =>
-    @el.html template(@data())
+class ControlPanel extends Component
+  template: template
+
+  constructor: (opts)->
+    super
+    @state = opts.state
+
+    @state.on 'all', @render
+    @state.on 'change:game:end', @endGame
+    @el.on 'click', '.start-button', @startGame
+    @el.on 'click', '.quit-button', @quitGame
+    @el.on 'click', '.replay-button', @replayGame
+
+    @render()
 
   data: ->
     game = @state.get('game')
     time = new Date()
 
-    data =
-      timeLeft: Math.floor(game?.timeLeft(time) / 1000)
-      points: game?.points()
-      isPreGame: !game?
-      isInGame: game? && game.isInGame(time)
-      isPostGame: game? && !game.isInGame(time)
-
-    console.log data
-    console.log JSON.stringify(data)
-
-    data
+    timeLeft: Math.floor(game?.timeLeft(time) / 1000)
+    points: game?.points()
+    isPreGame: !game?
+    isInGame: game? && game.isInGame(time)
+    isPostGame: game? && !game.isInGame(time)
 
   # DOM -> State
   startGame: =>
-    console.log 'starting game'
-    game = new Game()
-    @state.set('game', game)
+    @state.set('game', new Game())
+
+  quitGame: =>
+    @state.get('game').destroy()
+    @state.set('currentWord', new Word(literal: ''))
+    @state.set('game', undefined)
+
+  replayGame: =>
+    @state.get('game').destroy()
+    @state.set('currentWord', new Word(literal: ''))
+    @state.set('game', new Game())
+
+  endGame: =>
+    @state.set('currentWord', new Word(literal: ''))
 
 module.exports = ControlPanel

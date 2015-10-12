@@ -1,5 +1,7 @@
 _ = require('lodash')
 
+window._ = _
+
 class Model
   constructor: (attrs = {})->
     @attributes = attrs
@@ -10,7 +12,8 @@ class Model
     if value instanceof Model
       value.on 'all', (args)=>
         @trigger("change:#{key}", args.slice(1)...)
-        @trigger("change:#{key}:#{args[0]}", args.slice(1)...)
+        subevent = args[0]
+        @trigger("change:#{key}:#{subevent}", args.slice(1)...)
 
     @trigger("change:#{key}")
 
@@ -19,9 +22,10 @@ class Model
 
   trigger: (args...)->
     event = args[0]
-    _(@listeners[event]).each (l)->
+    _.forEach @listeners[event] || [],  (l)->
       l.apply undefined, args
-    _(@listeners['all']).each (l)->
+
+    _.forEach @listeners['all'] || [],  (l)->
       l.apply undefined, args
 
   on: (event, callback)->

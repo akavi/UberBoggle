@@ -6,8 +6,14 @@ class Game extends Model
 
   constructor: ->
     super
+
+    @set('start', new Date())
     @initBoard()
     @initWordList()
+    @initTicker()
+
+  destroy: ->
+    clearInterval @ticker
 
   initBoard: ->
     board = for i in [0...@size]
@@ -18,15 +24,25 @@ class Game extends Model
 
   initWordList: ->
     @set('wordList', [])
+
+  initTicker: =>
+    times = 0
+    tickerFunc = =>
+      if !@isInGame(new Date())
+        clearInterval @ticker
+      @trigger('tick')
+
+    @ticker = setInterval tickerFunc, 300
   
   isInGame: (time)->
     @timeLeft(time) > 0
 
   timeLeft: (time)->
-    @get('start') + @duration - time
+    (@get('start') - time) + @duration
   
   points: ->
-    _(@get('words')).reduce (sum, w)-> sum + w.value()
+    points = _.reduce @get('words'), (sum, w)-> sum + w.value()
+    points or 0
 
   wordPath: (word)->
     literal = word.get('literal')
@@ -35,7 +51,7 @@ class Game extends Model
     @_wordPath(literal, board)
 
   isWordPresent: (word)->
-    @isWordPresent(word)
+    @wordPath(word)?
 
   isWordUnique: (word)->
     _(@get('words')).all (w)->

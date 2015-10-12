@@ -105,6 +105,16 @@ body{
   font-size: 12pt;
 }
 
+.time-left{
+  display: inline-block;
+  text-align: center;
+  vertical-align: top;
+  padding-left: 4px;
+  padding-right: 4px;
+  height: 56px;
+  width: 68px;
+}
+
 .time-left-count{
   font-size: 32pt;
 }
