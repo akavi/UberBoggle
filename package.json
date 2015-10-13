@@ -1,4 +1,11 @@
 {
+  "name": "uber-boggle",
+  "version": "0.1.0",
+  "repository" : { 
+    "type" : "git",
+    "url" : "https://github.com/akavi/UberBoggle.git"
+  },
+  "license": "MIT",
   "dependencies": {
     "event-stream": "^3.3.1",
     "express": "^4.13.3",
