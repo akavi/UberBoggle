@@ -11,7 +11,7 @@ describe 'ControlPanel', ->
     it 'renders correctly initially', ->
       expect(@cp.$('.start-button').length > 0).toBeTruthy()
       expect(@cp.$('.time-left').length > 0).toBeFalsy()
-      expect(@cp.$('.times-up-label').length > 0).toBeFalsy()
+      expect(@cp.$('.times-up').length > 0).toBeFalsy()
       expect(@cp.$('.points-display').length > 0).toBeFalsy()
       expect(@cp.$('.quit-button').length > 0).toBeFalsy()
       expect(@cp.$('.replay-button').length > 0).toBeFalsy()
@@ -21,7 +21,7 @@ describe 'ControlPanel', ->
 
       expect(@cp.$('.start-button').length > 0).toBeFalsy()
       expect(@cp.$('.time-left').length > 0).toBeTruthy()
-      expect(@cp.$('.times-up-label').length > 0).toBeFalsy()
+      expect(@cp.$('.times-up').length > 0).toBeFalsy()
       expect(@cp.$('.points-display').length > 0).toBeTruthy()
       expect(@cp.$('.quit-button').length > 0).toBeTruthy()
       expect(@cp.$('.replay-button').length > 0).toBeFalsy()
@@ -32,7 +32,7 @@ describe 'ControlPanel', ->
 
       expect(@cp.$('.start-button').length > 0).toBeFalsy()
       expect(@cp.$('.time-left').length > 0).toBeFalsy()
-      expect(@cp.$('.times-up-label').length > 0).toBeTruthy()
+      expect(@cp.$('.times-up').length > 0).toBeTruthy()
       expect(@cp.$('.points-display').length > 0).toBeTruthy()
       expect(@cp.$('.quit-button').length > 0).toBeFalsy()
       expect(@cp.$('.replay-button').length > 0).toBeTruthy()

@@ -12,7 +12,7 @@ Game = require('../../models/game')
 Word = require('../../models/word')
 Board = require('../../models/word')
 
-class BoggleApp extends Component
+class App extends Component
   template: template
 
   constructor: ->
@@ -37,4 +37,4 @@ class BoggleApp extends Component
     @wordsPanel ?= new WordsPanelComponent(state: @state)
     @$('.h-words-panel').html @wordsPanel.el
 
-module.exports = BoggleApp
+module.exports = App

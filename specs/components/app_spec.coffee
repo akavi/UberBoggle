@@ -1,12 +1,12 @@
 require('../spec_helper')
 
-BoggleApp = require('../../src/components/boggle_app')
+App = require('../../src/components/app')
 Model = require('../../src/models/model')
 Word = require('../../src/models/word')
 
 describe "App", ->
   beforeEach ->
-    @app = new BoggleApp()
+    @app = new App()
 
   describe 'intialization', ->
     it 'intializes @el', ->

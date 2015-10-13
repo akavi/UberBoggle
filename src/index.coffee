@@ -1,6 +1,6 @@
 $ = require('jquery')
-BoggleApp = require('./components/boggle_app')
+App = require('./components/app')
 
 $ ->
-  app = new BoggleApp()
+  app = new App()
   $('.h-main').html app.el
